@@ -1,0 +1,72 @@
+/* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
+
+body {
+	background:url(images/header-bg.png) repeat-x;
+}
+h1 {
+	font-weight:normal;
+}
+a {
+	font-weight:normal;
+	text-decoration:none;
+}
+.wrap {
+	margin:0 auto;
+	width: 960px;
+}
+
+
+/* -----TOP OF PAGE----- */
+
+.top-background {
+	background:;
+	yellow-repeatx-center-top
+}
+
+header {
+
+}
+
+.main-nav {
+
+}
+.sub-nav-first {
+
+}
+.sub-nav{
+
+}
+
+/* -----CENTRAL PAGE----- */
+
+.side-nav-section {
+	
+}
+	.side-nav {
+		
+	}
+		
+.central-content {
+
+}
+.audio-section {
+	
+}
+	.listen-prompt {
+	
+	}
+	.audio-player {
+	
+	}
+	
+/* -----BOTTOM OF PAGE----- */
+
+.bottom-background {
+	
+}
+footer {
+	
+}
+
+
+
