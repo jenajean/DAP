@@ -5,7 +5,7 @@ $(function() {
 	
 	    //setup variables for dynamic content replacement
 	    var newHash      = "",
-	        $dynamicContent = $("#dynamic-content"),
+	        $dynamicContentWrap = $("#dynamic_content_wrap"),
 	        $pageWrap    = $("#page-wrap"), // <-- figure out how to handle this with our page structure ***
 	        baseHeight   = 0,
 	        $el;
@@ -16,7 +16,7 @@ $(function() {
 	    
 	    
 	    //hijack nav link click function to run dynamic replacement function
-	    $("nav").on("a", "click", function() {
+	    $("nav").delegate("a", "click", function() {
 	        _link = $(this).attr("href");
 	        history.pushState(null, null, _link);
 	        loadContent(_link);
@@ -26,13 +26,13 @@ $(function() {
 	    
 	    //function to dynamically replace page content
 	    function loadContent(href){
-	        $dynamicContent
+	        $dynamicContentWrap
 	                .find("#dynamic-content")
 	                .fadeOut(200, function() { // fade out the content of the current page
-	                    $mainContent.hide().load(href + " #dynamic-content", function() { // load the contents of whatever href is
-	                        $mainContent.fadeIn(200, function() {
+	                    $dynamicContentWrap.hide().load(href + " #dynamic-content", function() { // load the contents of whatever href is
+	                        $dynamicContentWrap.fadeIn(200, function() {
 	                            $pageWrap.animate({
-	                                height: baseHeight + $mainContent.height() + "px"
+	                                height: baseHeight + $dynamicContentWrap.height() + "px"
 	                            });
 	                        });
 	                        $("nav a").removeClass("current");
