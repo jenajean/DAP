@@ -12,7 +12,7 @@ $(function() {
 	        
 	    // calculate wrapper heights to prevent jumping when loading new content    
 	    $pageWrap.height($pageWrap.height());
-	    baseHeight = $pageWrap.height() - $mainContent.height();
+	    baseHeight = $pageWrap.height() - $dynamicContentWrap.height();
 	    
 	    
 	    //hijack nav link click function to run dynamic replacement function
@@ -29,7 +29,7 @@ $(function() {
 	        $dynamicContentWrap
 	                .find("#dynamic-content")
 	                .fadeOut(200, function() { // fade out the content of the current page
-	                    $dynamicContentWrap.hide().load(href + " #dynamic-content", function() { // load the contents of whatever href is
+	                    $dynamicContentWrap.hide().load(href + "#dynamic-content", function() { // load the contents of whatever href is
 	                        $dynamicContentWrap.fadeIn(200, function() {
 	                            $pageWrap.animate({
 	                                height: baseHeight + $dynamicContentWrap.height() + "px"
