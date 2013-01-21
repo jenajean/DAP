@@ -31,12 +31,7 @@ $(function() {
 
 //VVV----- Code for dynamic page content replacement -----VVV (thanks to Jesse Shawl and CSS Tricks for the example code)
 	
-	var hasHistory = false;
 	if(Modernizr.history){
-		hasHistory = true;
-	}
-	
-	if(hasHistory){
 	
 		
 		
@@ -138,6 +133,21 @@ $(function() {
 
 
 
+//VVV----- Code for tabbed content within pages -----VVV
+
+	$('.changing-content > div').each(function(){
+		if($(this).hasClass("selected")){
+			return;
+		}
+		else{
+			$(this).addClass("hiding");
+		}
+	
+	});
+
+//^^^----- code for tabbed content within pages -----^^^
+
+
 
     
-}); //end $(function(){})
+}); //end $ f(x)
