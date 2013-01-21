@@ -25,9 +25,12 @@ $('.main-nav a').each(function(){
 	    //setup variables for dynamic content replacement
 	    var newHash      = "",
 	        $dynamicContentWrap = $("#dynamic_content_wrap"),
-	        $pageWrap    = $("body"), // <-- figure out how to handle this with our page structure ***
+	        $pageWrap    = $("body"), 
 	        baseHeight   = 0,
 	        $el;
+	        
+	        var $subNav = $("#sub-nav-wrap");//for sub-nav replacement
+	        
 	        
 	    // calculate wrapper heights to prevent jumping when loading new content    
 	    $pageWrap.height($pageWrap.height());
@@ -39,12 +42,10 @@ $('.main-nav a').each(function(){
 	    //when a main navigation link is clicked, run the loadContent function
 	    $('.main-nav a').click(function() {
 	        _link = $(this).attr("rel");
-	          //$dingleberries = $(_link " #dynamic-content").html();//test code
-		      //console.log($dingleberries);//test code
-	        console.log(_link);
+	        console.log("LINK: "+_link);
+	        loadSubNav(_link);
 	        loadContent(_link);
 	        history.pushState(null, null, _link);
-	        
 	        return false;
 	    });
 	    
@@ -52,7 +53,8 @@ $('.main-nav a').each(function(){
   
 	    //function to dynamically replace page content
 	    function loadContent(href){
-	       	console.log("argument: "+	href);
+	       	console.log("argument: "+	href);//test code
+	        //replace the dynamic content section of the page
 	        $dynamicContentWrap
 	                .find("#dynamic-content")
 	                .fadeOut(200, function() { // fade out the content of the current page
@@ -61,18 +63,39 @@ $('.main-nav a').each(function(){
 	                            $pageWrap.animate({
 	                                height: baseHeight + $dynamicContentWrap.height() + "px"
 	                            });
-	                        });
-	                        $("nav a").removeClass("current");
-	                        console.log(href);
-	                        $("nav a[href$="+href+"]").addClass("current");
+	                        });//end load
+//**temporarily disable class re-assignment until final classes are decided**
+//							$("nav a").removeClass("current");
+// 	                        console.log(href);
+// 	                        $("nav a[href$="+href+"]").addClass("current");
 	                    });
 	                });
 	    }
 	    
-	    $(window).bind('popstate', function(){
-	       _link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
-	       loadContent(_link);
-	    });
+	    //function to dynamically replace sub-nav content
+	    function loadSubNav(href){
+	    	console.log("argument: "+ href);//test code
+	    	
+	    	$subNav.find(".sub-nav").fadeOut(100, function(){
+	    		$subNav.hide().load(href + " .sub-nav", function(){
+	    			$subNav.fadeIn(100, function(){
+	    				//nothing special here for the time being
+	    			});
+	    		});//end load f(x)
+	    	});//end fadeOut f(x)
+	    	
+	    	}//end loadSubNav definition
+	    
+	    
+	    
+//**temporarily disable pop-state stuff**
+//		   $(window).bind('popstate', function(){
+// 	       _link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
+// 	       loadContent(_link);
+//	    });
+	
+	
+	
 	
 	} // otherwise, history is not supported, so nothing fancy here.
 	//end of if(Modernizr.history..)
