@@ -1,14 +1,26 @@
+/* -----strictly js----- */
+.hiding {
+	display:none;
+}
+
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
 	background:url(images/header-bg.png) repeat-x;
 }
+* {
+	color:black;
+}
 h1 {
-	font-weight:normal;
+	text-align:center;
 }
 a {
 	font-weight:normal;
 	text-decoration:none;
+}
+ul {
+	margin-left:1em;
+	padding-left:1em;
 }
 .wrap {
 	margin:0 auto;
@@ -28,9 +40,18 @@ header {
 }
 
 .main-nav {
-
+	text-align: center;
 }
-.sub-nav-first {
+.main-nav ul, .main-nav li {
+	display:inline;
+}
+.main-nav li {
+	list-style:none;
+	padding:0 20px;
+	
+}
+.sub-nav-first 
+{
 
 }
 .sub-nav{
