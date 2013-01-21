@@ -115,7 +115,6 @@ $(function() {
 	    	$subNav.find(".sub-nav").fadeOut(100, function(){
 	    		$subNav.hide().load(href + " .sub-nav", function(){
 	    			$subNav.fadeIn(100, function(){
-	    				sanitizeLinks('.sub-nav'); //sanitize the links in the new subnav
 	    				//nothing special animated here for the time being
 	    			});
 	    		});//end load f(x)
