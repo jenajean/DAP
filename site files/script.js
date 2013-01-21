@@ -41,10 +41,12 @@ $('.main-nav a').each(function(){
 	    
 	    //when a main navigation link is clicked, run the loadContent function
 	    $('.main-nav a').click(function() {
-	        _link = $(this).attr("rel");
+	        var _link = $(this).attr("rel");
+	        var _link2 = _link;
 	        console.log("LINK: "+_link);
-	        loadSubNav(_link);
+	        console.log("LINK2: "+_link2);
 	        loadContent(_link);
+	        loadSubNav(_link2);
 	        history.pushState(null, null, _link);
 	        return false;
 	    });
@@ -62,15 +64,20 @@ $('.main-nav a').each(function(){
 	                        $dynamicContentWrap.fadeIn(200, function() {
 	                            $pageWrap.animate({
 	                                height: baseHeight + $dynamicContentWrap.height() + "px"
-	                            });
-	                        });//end load
+	                            });//end animate
+	                            
+	                        });//end fadeIn
+	                        
 //**temporarily disable class re-assignment until final classes are decided**
 //							$("nav a").removeClass("current");
 // 	                        console.log(href);
 // 	                        $("nav a[href$="+href+"]").addClass("current");
-	                    });
-	                });
-	    }
+
+	                    });//end load
+	                    
+	                });//end fadeOut
+	                
+	    }//end loadContent definition
 	    
 	    //function to dynamically replace sub-nav content
 	    function loadSubNav(href){
