@@ -37,6 +37,10 @@ header {
 
 }
 
+.selected {
+	border: 1px solid red;
+}
+
 /* -----CENTRAL PAGE----- */
 
 .side-nav-section {
