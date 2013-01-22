@@ -2,7 +2,7 @@
 .hiding {
 	display:none;
 }
-.changing-content > div {
+.changing-content > div.selected {
 display:block;
 }
 
