@@ -2,17 +2,23 @@
 .hiding {
 	display:none;
 }
+.selected {
+	border: 1px solid red;
+	font-weight:bold;
+}
 
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
 	background:url(images/header-bg.png) repeat-x;
+	margin:0 auto;
 }
 * {
 	color:black;
 }
 h1 {
 	text-align:center;
+	margin:0;
 }
 a {
 	font-weight:normal;
@@ -31,16 +37,19 @@ ul {
 /* -----TOP OF PAGE----- */
 
 .top-background {
-	background:;
-	yellow-repeatx-center-top
+	height: 231px;
+	background:url(images/header-bg.png) repeat-x;
 }
 
 header {
+padding-top:3em;
 
 }
 
 .main-nav {
 	text-align: center;
+	margin-top: 1.5em;
+
 }
 .main-nav ul, .main-nav li {
 	display:inline;
@@ -48,6 +57,9 @@ header {
 .main-nav li {
 	list-style:none;
 	padding:0 20px;
+	border-left:1px solid black;
+	border-top:1px solid black;
+	padding-top:.5em;
 	
 }
 .sub-nav-first 
@@ -55,12 +67,24 @@ header {
 
 }
 .sub-nav{
-
+	margin-top:1.5em;
 }
-
-.selected {
-	border: 1px solid red;
+.sub-nav ul, .sub-nav li{
+	display:inline;
 }
+.sub-nav li {
+	list-style:none;
+	padding:0 20px;
+	border-left:1px solid black;
+}
+.about-sub-nav {
+	margin-left:16.2em;
+}
+.piano-services-sub-nav {
+	margin-left:21.5em;
+ }
+
+
 
 /* -----CENTRAL PAGE----- */
 
