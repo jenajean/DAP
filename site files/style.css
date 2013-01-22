@@ -6,13 +6,14 @@
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
-	background:url(images/header-bg.png) repeat-x;
+	margin:0 auto;
 }
 * {
 	color:black;
 }
 h1 {
 	text-align:center;
+	margin:0;
 }
 a {
 	font-weight:normal;
@@ -31,16 +32,17 @@ ul {
 /* -----TOP OF PAGE----- */
 
 .top-background {
-	background:;
-	yellow-repeatx-center-top
+	height: 231px;
+	background:url(images/header-bg.png) repeat-x;
 }
 
 header {
-
+	padding-top:3em;
 }
 
 .main-nav {
 	text-align: center;
+	margin-top: 1.5em;
 }
 .main-nav ul, .main-nav li {
 	display:inline;
@@ -55,7 +57,20 @@ header {
 
 }
 .sub-nav{
-
+	margin-top:1.5em;
+}
+.sub-nav ul, .sub-nav li{
+	display:inline;
+}
+.sub-nav li {
+	list-style:none;
+	padding:0 20px;
+}
+.about-sub-nav {
+	margin-left:16.2em;
+}
+.piano-services-sub-nav {
+	
 }
 
 .selected {
