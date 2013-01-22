@@ -116,7 +116,7 @@ $(function() {
 	    			$subNav.fadeIn(100, function(){
 	    				//nothing special animated here for the time being
 	    				//hide the extra tabbed content
-	    				hideTabs();
+	    				//hideTabs();
 	    			});
 	    		});//end load f(x)
 	    	});//end fadeOut f(x)	
@@ -168,6 +168,7 @@ $(function() {
 	//define function to swap tab content when side-nav is clicked
 	function swapTabs(tabID){
 		var $thisTab = $(tabID);
+		console.log($thisTab.html());
 		$('.changing-content > div').removeClass("selected");
 		$thisTab.addClass("selected");
 	}
