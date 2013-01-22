@@ -40,6 +40,11 @@ header {
 	padding-top:3em;
 }
 
+
+
+
+/* -----NAV POSITIONING/STYLES----- */
+
 .main-nav {
 	text-align: center;
 	margin-top: 1.5em;
@@ -50,12 +55,16 @@ header {
 .main-nav li {
 	list-style:none;
 	padding:0 20px;
-	
+	border-left:1px solid black;
+	border-top:1px solid black;
+	padding-top:.5em;
 }
-.sub-nav-first 
-{
+/* FIX THE FOLLOWING TWO */
 
+.main-nav-first {
+	border-left: none !important;
 }
+
 .sub-nav{
 	margin-top:1.5em;
 }
@@ -65,16 +74,23 @@ header {
 .sub-nav li {
 	list-style:none;
 	padding:0 20px;
+	border-left:1px solid black;
 }
 .about-sub-nav {
 	margin-left:16.2em;
 }
 .piano-services-sub-nav {
+	margin-left:21.5em;
+}
+.pianos-for-sale-sub-nav {
 	
+}
+li:first-child {
+	border-left:none;
 }
 
 .selected {
-	border: 1px solid red;
+	font-weight:bold;
 }
 
 /* -----CENTRAL PAGE----- */
@@ -85,10 +101,6 @@ header {
 	.side-nav {
 		
 	}
-	
-.changing-content > div.selected {
-	display:block;			
-}
 		
 .central-content {
 
