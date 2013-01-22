@@ -70,6 +70,10 @@ header {
 	.side-nav {
 		
 	}
+	
+.changing-content > div.selected {
+	display:block;			
+}
 		
 .central-content {
 

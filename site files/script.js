@@ -1,6 +1,8 @@
 $(function() {
 
-
+	//call tab hider
+	//hide the extra tabbed content
+	hideTabs();
 
 	//function to switch out all hrefs in the specified container with "#"
 	function sanitizeLinks(container){
@@ -96,6 +98,8 @@ $(function() {
 	                            $pageWrap.animate({
 	                                height: baseHeight + $dynamicContentWrap.height() + "px"
 	                            });//end animate
+	                            //hide the extra tabbed content
+	    						hideTabs();
 	                        });//end fadeIn
 	                    });//end load
 	                });//end fadeOut
@@ -111,6 +115,8 @@ $(function() {
 	    		$subNav.hide().load(href + " .sub-nav", function(){
 	    			$subNav.fadeIn(100, function(){
 	    				//nothing special animated here for the time being
+	    				//hide the extra tabbed content
+	    				hideTabs();
 	    			});
 	    		});//end load f(x)
 	    	});//end fadeOut f(x)	
@@ -135,15 +141,39 @@ $(function() {
 
 //VVV----- Code for tabbed content within pages -----VVV
 
-	$('.changing-content > div').each(function(){
-		if($(this).hasClass("selected")){
-			return;
-		}
-		else{
-			$(this).addClass("hiding");
-		}
+	//assign a click-function for the side-navigation
+	$(".side-nav a").click(function(){
+		$(".side-nav a").removeClass("selected");
+		$(this).addClass("selected");
+		var link = $(this).attr("rel");
+		console.log("side-link "+link);//test code
+		swapTabs("#"+link);
+	})
+
+
+	//define function to hide tabs when tabbed content is loaded
+	function hideTabs(){
+		$('.changing-content > div').each(function(){
+			if($(this).hasClass("selected")){
+				//do nothing
+			}
+			else{
+				$(this).addClass("hiding");
+			}
+		});
+		console.log("tabs hidden");
+	}
 	
-	});
+	
+	//define function to swap tab content when side-nav is clicked
+	function swapTabs(tabID){
+		var $thisTab = $(tabID);
+		$('.changing-content > div').removeClass("selected");
+		$thisTab.addClass("selected");
+	}
+	
+	
+	
 
 //^^^----- code for tabbed content within pages -----^^^
 
