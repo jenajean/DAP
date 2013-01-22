@@ -4,7 +4,7 @@ $(function() {
 	//hide the extra tabbed content
 	hideTabs();
 
-	//function to switch out all hrefs in the specified container with "#"
+	//function to switch out all hrefs in the specified (string of class/id for nav container) container with "#"
 	function sanitizeLinks(container){
 	$container = $(container);
 	console.log($container.html());
@@ -16,9 +16,9 @@ $(function() {
 			$(container + ' a').each(function(){
 				$cur_link = $(this);
 				var href = $cur_link.attr('href');
-				//console.log("href: " + href);//test code
+				console.log("href: " + href);//test code
 				$cur_link.attr('rel', href);
-				//console.log("rel: " + $cur_link.attr('rel'));//test code
+				console.log("rel: " + $cur_link.attr('rel'));//test code
 				$cur_link.attr('href', '#');
 				//console.log("final href: " + $cur_link.attr('href'));//test code
 				$container.addClass("sanitized");
@@ -147,12 +147,13 @@ $(function() {
 		$(this).addClass("selected");
 		var link = $(this).attr("rel");
 		console.log("side-link "+link);//test code
-		swapTabs("#"+link);
+		swapTabs(link);
 	})
 
 
 	//define function to hide tabs when tabbed content is loaded
 	function hideTabs(){
+		sanitizeLinks(".side-nav");
 		$('.changing-content > div').each(function(){
 			if($(this).hasClass("selected")){
 				//do nothing
