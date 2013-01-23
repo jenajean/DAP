@@ -7,12 +7,6 @@ $(function() {
 	//function to switch out all hrefs in the specified (string of class/id for nav container) container with "#"
 	function sanitizeLinks(container){
 	$container = $(container);
-	//console.log($container.html());
-	//first check to make sure the container hasn't already been sanitized so the rel values aren't also overwritten with "#"
-		//if ($container.hasClass("sanitized")){
-		//	return;//do nothing
-		//}
-		//else{
 			$(container + ' a').each(function(){
 				$cur_link = $(this);
 				var href = $cur_link.attr('href');
@@ -24,9 +18,6 @@ $(function() {
 				$container.addClass("sanitized");
 				console.log("Links are sanitized");	
 			});
-		//console.log($container.html());
-		//return;
-		//}
 	}
 
 
