@@ -5,6 +5,9 @@
 .selected {
 	font-weight:bold;
 }
+.selected p{
+	font-weight:normal;
+}
 .changing-content > div.selected {
 	display:block;			
 }
@@ -25,11 +28,15 @@ h1 {
 	margin:0 auto;
 	display:block;
 	width:800px;
+	font-family: "ff-market-web";
 	
 }
 a {
 	font-weight:normal;
 	text-decoration:none;
+}
+p, h3 {
+	padding: 1em;
 }
 ul {
 	margin-left:1em;
@@ -119,6 +126,10 @@ padding-top:3em;
 	display:inline-block;
 	vertical-align:top;
 }
+	.side-nav-section p {
+		color:white;
+	
+	}
 	.side-nav {
 		background-color:rgba(0,0,0,0.5);
 		padding: 1em 0;
