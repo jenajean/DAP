@@ -6,19 +6,27 @@
 	border: 1px solid red;
 	font-weight:bold;
 }
+.changing-content > div.selected {
+	display:block;			
+}
 
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
-	background:url(images/header-bg.png) repeat-x;
+	background:url(images/david-andersen-pianos-bg.jpg) no-repeat;
 	margin:0 auto;
 }
 * {
 	color:black;
 }
 h1 {
+	border-top:1px solid black;
+	padding-top:.5em;
 	text-align:center;
-	margin:0;
+	margin:0 auto;
+	display:block;
+	width:800px;
+	
 }
 a {
 	font-weight:normal;
@@ -32,6 +40,20 @@ ul {
 	margin:0 auto;
 	width: 960px;
 }
+/* CLEAR-FIX	 */
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+} 
+/* END CLEAR-FIX*/
+
 
 
 /* -----TOP OF PAGE----- */
@@ -48,21 +70,24 @@ padding-top:3em;
 
 .main-nav {
 	text-align: center;
-	margin-top: 1.5em;
+
+}
+.main-nav ul{
+	border-top:1px solid black;
 
 }
 .main-nav ul, .main-nav li {
-	display:inline;
+	display:inline-block;
 }
 .main-nav li {
 	list-style:none;
 	padding:0 20px;
 	border-left:1px solid black;
-	border-top:1px solid black;
 	padding-top:.5em;
 	
+	
 }
-.sub-nav-first 
+.first-item-sub-nav  /* jena verify */
 {
 
 }
@@ -70,13 +95,15 @@ padding-top:3em;
 	margin-top:1.5em;
 }
 .sub-nav ul, .sub-nav li{
-	display:inline;
+	display:inline-block;
 }
 .sub-nav li {
 	list-style:none;
 	padding:0 20px;
 	border-left:1px solid black;
+	
 }
+ /* jena verify below */
 .about-sub-nav {
 	margin-left:16.2em;
 }
@@ -89,18 +116,34 @@ padding-top:3em;
 /* -----CENTRAL PAGE----- */
 
 .side-nav-section {
-	
+	width:250px;
+	display:inline-block;
 }
 	.side-nav {
-		
+		background-color:rgba(0,0,0,0.5);
+		padding: 1em 0;
+		width:200px;
+		margin-top:7em;
 	}
+	.side-nav li {
+		color:white;
+		list-style:none;
+		padding:.5em 0;
 	
-.changing-content > div.selected {
-	display:block;			
-}
+	}
+	.side-nav li a{
+		color:white;
+	}
 		
-.central-content {
-
+.central-section {
+	width:420px;
+	background-color:white;
+	display:inline-block;
+	background-color:white;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 .audio-section {
 	
