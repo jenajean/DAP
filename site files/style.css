@@ -20,6 +20,8 @@ body {
 }
 * {
 	color:black;
+	font-family: "myriad-pro";
+	/* font-family: "myriad-pro-condensed"; bold is font weight 700*/
 }
 h1 {
 	border-top:1px solid black;
@@ -81,6 +83,9 @@ padding-top:3em;
 
 .main-nav {
 	text-align: center;
+	text-transform:upper-case;
+	font-family:"myriad-pro-condensed";
+	
 
 }
 .main-nav ul{
@@ -102,11 +107,11 @@ padding-top:3em;
 /* jena couldint figure out how to get it 
 	to over-ride the general border left without messin around 
 	too much at critical js time */
-.first-main-nav-item {
+.first-main-nav-item, .first-sub-nav-item {
 	border-left:none !important; 
 }
 .sub-nav{
-	margin-top:1.5em;
+	font-family:"myriad-pro-condensed";
 }
 .sub-nav ul, .sub-nav li{
 	display:inline-block;
