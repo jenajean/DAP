@@ -118,14 +118,18 @@ padding-top:3em;
 .side-nav-section {
 	width:210px;
 	display:inline-block;
+	vertical-align:top;
 }
 	.side-nav {
 		background-color:rgba(0,0,0,0.5);
 		padding: 1em 0;
 		width:200px;
-		margin-top:7em;
+		margin-top:3em;
 		float:right;
 
+	}
+	.side-nav ul {
+		border-left:1px solid white;
 	}
 	.side-nav li {
 		color:white;
@@ -138,15 +142,21 @@ padding-top:3em;
 	}
 		
 .central-section {
-	width:420px;
-	background-color:white;
+	width:700px;
 	display:inline-block;
-	background-color:white;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px; /* future proofing */
-	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
+	.central-section-content {
+		width:600px;
+		min-height: 450px;
+		background-color:white;
+		float:left;
+		margin-left:-3px;
+		margin-top:2em;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px; /* future proofing */
+		-khtml-border-radius: 10px; /* for old Konqueror browsers */
+	}
 	
 .audio-section {
 	
