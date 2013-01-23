@@ -155,13 +155,8 @@ $(function() {
 	function hideTabs(){
 		sanitizeLinks(".side-nav");
 		$('.changing-content > div').each(function(){
-		//	if($(this).hasClass("selected") || $(this).hasClass("hiding")){
-		//		//do nothing
-		//	}
-		//	else{
-				$(this).addClass("hiding");
-				console.log($(this).attr("id")+ " has classes " + $(this).attr("class"))
-		//	}
+			$(this).addClass("hiding");
+			console.log($(this).attr("id")+ " has classes " + $(this).attr("class"))
 		});
 		console.log("unhidden, unselected tabs are now hidden");
 	}
