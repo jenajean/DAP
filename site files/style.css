@@ -116,7 +116,7 @@ padding-top:3em;
 /* -----CENTRAL PAGE----- */
 
 .side-nav-section {
-	width:250px;
+	width:210px;
 	display:inline-block;
 }
 	.side-nav {
@@ -124,6 +124,8 @@ padding-top:3em;
 		padding: 1em 0;
 		width:200px;
 		margin-top:7em;
+		float:right;
+
 	}
 	.side-nav li {
 		color:white;
@@ -145,6 +147,7 @@ padding-top:3em;
 	border-radius: 10px; /* future proofing */
 	-khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
+	
 .audio-section {
 	
 }
