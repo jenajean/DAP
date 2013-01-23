@@ -3,7 +3,6 @@
 	display:none;
 }
 .selected {
-	border: 1px solid red;
 	font-weight:bold;
 }
 .changing-content > div.selected {
