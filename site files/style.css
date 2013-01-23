@@ -35,8 +35,13 @@ a {
 	font-weight:normal;
 	text-decoration:none;
 }
-p, h3 {
-	padding: 1em;
+p{
+	padding: 0 2em;
+}
+h2, h3, h4 {
+	padding-left:2em;
+	margin-top:0;
+	padding-top:.5em;
 }
 ul {
 	margin-left:1em;
@@ -93,9 +98,12 @@ padding-top:3em;
 	
 	
 }
-.first-item-sub-nav  /* jena verify */
-{
 
+/* jena couldint figure out how to get it 
+	to over-ride the general border left without messin around 
+	too much at critical js time */
+.first-main-nav-item {
+	border-left:none !important; 
 }
 .sub-nav{
 	margin-top:1.5em;
@@ -147,9 +155,10 @@ padding-top:3em;
 		padding:.5em 0;
 	
 	}
-	.side-nav li a{
+	.side-nav li a, .side-nav a{
 		color:white;
 	}
+	
 		
 .central-section {
 	width:700px;
@@ -167,6 +176,23 @@ padding-top:3em;
 		border-radius: 10px; /* future proofing */
 		-khtml-border-radius: 10px; /* for old Konqueror browsers */
 	}
+	.static-content {
+		background-color: rgb(200, 200, 200);
+		-moz-border-radius: 10px 10px 0 0;
+		-webkit-border-radius: 10px 10px 0 0;
+		border-radius: 10px 10px 0 0; /* future proofing */
+		-khtml-border-radius: 10px 10px 0 0; /* for old Konqueror browsers */
+	}
+	.static-content p {
+		font-weight:bold;
+		margin-top:0;
+		padding-top:1em;
+		padding-bottom:1em;
+	}
+	.changing-content ul {
+		list-style-position: inside;
+		display:block;
+		}
 	
 .audio-section {
 	
