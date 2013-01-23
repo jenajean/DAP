@@ -7,7 +7,7 @@ $(function() {
 	//function to switch out all hrefs in the specified (string of class/id for nav container) container with "#"
 	function sanitizeLinks(container){
 	$container = $(container);
-	console.log($container.html());
+	//console.log($container.html());
 	//first check to make sure the container hasn't already been sanitized so the rel values aren't also overwritten with "#"
 		if ($container.hasClass("sanitized")){
 			return;//do nothing
@@ -16,9 +16,9 @@ $(function() {
 			$(container + ' a').each(function(){
 				$cur_link = $(this);
 				var href = $cur_link.attr('href');
-				console.log("href: " + href);//test code
+				//console.log("href: " + href);//test code
 				$cur_link.attr('rel', href);
-				console.log("rel: " + $cur_link.attr('rel'));//test code
+				//console.log("rel: " + $cur_link.attr('rel'));//test code
 				$cur_link.attr('href', '#');
 				//console.log("final href: " + $cur_link.attr('href'));//test code
 				$container.addClass("sanitized");
@@ -40,6 +40,7 @@ $(function() {
 		//run link sanitizer to prevent actual navigation off the page, only if we have access to history
 		sanitizeLinks('.main-nav');
 		sanitizeLinks('.sub-nav');
+		
 		
 		
 	    //setup variables for dynamic content replacement
@@ -66,7 +67,10 @@ $(function() {
 	        //console.log("LINK: "+_link);//test code
 	        //console.log("LINK2: "+_link2);//test code
 	        loadContent(_link);
-	        loadSubNav(_link2);
+	        $.when(loadSubNav(_link2)).done(function(){
+	        	sanitizeLinks(".sub-nav");
+	        });
+	        sanitizeLinks('.sub-nav');
 	        history.pushState(null, null, _link);
 	        return false;
 	    });
@@ -80,7 +84,7 @@ $(function() {
 	        loadContent(_link);
 	        history.pushState(null, null, _link);
 	        return false;
-	    });
+	    });;
 	    
 
 			    
@@ -142,34 +146,36 @@ $(function() {
 //VVV----- Code for tabbed content within pages -----VVV
 
 	//assign a click-function for the side-navigation
-	$(".side-nav a").click(function(){
+	$("#dynamic-content-wrap").delegate(".side-nav a", "click", function(){
 		$(".side-nav a").removeClass("selected");
 		$(this).addClass("selected");
 		var link = $(this).attr("rel");
 		console.log("side-link "+link);//test code
 		swapTabs(link);
 	})
+	
 
 
 	//define function to hide tabs when tabbed content is loaded
 	function hideTabs(){
 		sanitizeLinks(".side-nav");
 		$('.changing-content > div').each(function(){
-			if($(this).hasClass("selected")){
+			if($(this).hasClass("selected") || $(this).hasClass("hiding")){
 				//do nothing
 			}
 			else{
 				$(this).addClass("hiding");
+				console.log($(this).attr("id")+ " has classes " + $(this).attr("class"))
 			}
 		});
-		console.log("tabs hidden");
+		console.log("unhidden, unselected tabs are now hidden");
 	}
 	
 	
 	//define function to swap tab content when side-nav is clicked
 	function swapTabs(tabID){
 		var $thisTab = $(tabID);
-		console.log($thisTab.html());
+		console.log("thistab.html:" +$thisTab.html());
 		$('.changing-content > div').removeClass("selected");
 		$thisTab.addClass("selected");
 	}
@@ -183,3 +189,5 @@ $(function() {
 
     
 }); //end $ f(x)
+
+
