@@ -9,10 +9,10 @@ $(function() {
 	$container = $(container);
 	//console.log($container.html());
 	//first check to make sure the container hasn't already been sanitized so the rel values aren't also overwritten with "#"
-		if ($container.hasClass("sanitized")){
-			return;//do nothing
-		}
-		else{
+		//if ($container.hasClass("sanitized")){
+		//	return;//do nothing
+		//}
+		//else{
 			$(container + ' a').each(function(){
 				$cur_link = $(this);
 				var href = $cur_link.attr('href');
@@ -22,12 +22,11 @@ $(function() {
 				$cur_link.attr('href', '#');
 				//console.log("final href: " + $cur_link.attr('href'));//test code
 				$container.addClass("sanitized");
+				console.log("Links are sanitized");	
 			});
-			
-		console.log("Links are sanitized");	
-		console.log($container.html());
-		return;
-		}
+		//console.log($container.html());
+		//return;
+		//}
 	}
 
 
@@ -70,7 +69,7 @@ $(function() {
 	        $.when(loadSubNav(_link2)).done(function(){
 	        	sanitizeLinks(".sub-nav");
 	        });
-	        sanitizeLinks('.sub-nav');
+	        //sanitizeLinks('.sub-nav');
 	        history.pushState(null, null, _link);
 	        return false;
 	    });
@@ -107,6 +106,7 @@ $(function() {
 	                        });//end fadeIn
 	                    });//end load
 	                });//end fadeOut
+	            console.log("end of loadContent fx");
 	    }//end loadContent definition
 	    
 	    
@@ -124,6 +124,7 @@ $(function() {
 	    			});
 	    		});//end load f(x)
 	    	});//end fadeOut f(x)	
+	    	console.log("end of loadsubnav fx");
 	    }//end loadSubNav definition
 	    
 	    
