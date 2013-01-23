@@ -63,19 +63,14 @@ $(function() {
 	        $(this).addClass("selected"); //add selected class to the current
 	        var _link = $(this).attr("rel");
 	        var _link2 = _link;
-	        //console.log("LINK: "+_link);//test code
-	        //console.log("LINK2: "+_link2);//test code
 	        loadContent(_link);
-	        $.when(loadSubNav(_link2)).done(function(){
-	        	sanitizeLinks(".sub-nav");
-	        });
-	        //sanitizeLinks('.sub-nav');
+	        loadSubNav(_link2);
 	        history.pushState(null, null, _link);
 	        return false;
 	    });
 	    
 	    //when a sub navigation link is clicked, give it the 'selected' class and run the loadContent function
-	    $('.sub-nav a').click(function() {
+	    $('#sub-nav-wrap').delegate(".sub-nav a", "click", function() {
 	        $('.sub-nav a').removeClass("selected");//un-select the currently selected link
 	        $(this).addClass("selected"); //add selected class to the current
 	        var _link = $(this).attr("rel");
@@ -85,8 +80,6 @@ $(function() {
 	        return false;
 	    });;
 	    
-
-			    
 	    
   
 	    //function to dynamically replace page content
@@ -110,7 +103,7 @@ $(function() {
 	    }//end loadContent definition
 	    
 	    
-	    
+
 	    //function to dynamically replace sub-nav content
 	    function loadSubNav(href){
 	    	console.log("argument subnav: "+ href);//test code
@@ -122,6 +115,7 @@ $(function() {
 	    				//hide the extra tabbed content
 	    				//hideTabs();
 	    			});
+	    			sanitizeLinks('.sub-nav');
 	    		});//end load f(x)
 	    	});//end fadeOut f(x)	
 	    	console.log("end of loadsubnav fx");
