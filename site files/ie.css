@@ -1,0 +1,4 @@
+
+img {-ms-interpolation-mode: bicubic; }
+img, div { behavior: url(iepngfix.htc) }
+nav, footer, header {display:block}
