@@ -20,8 +20,10 @@ body {
 }
 * {
 	color:black;
-	font-family: "myriad-pro";
 	/* font-family: "myriad-pro-condensed"; bold is font weight 700*/
+}
+h2, h3, h4, h5, h5, ul, li, a, p {
+	font-family: "myriad-pro";
 }
 h1 {
 	border-top:1px solid black;
@@ -37,10 +39,10 @@ a {
 	font-weight:normal;
 	text-decoration:none;
 }
-p{
+p{	
 	padding: 0 2em;
 }
-h2, h3, h4 {
+h2, h3, h4, h5, h6 {
 	padding-left:2em;
 	margin-top:0;
 	padding-top:.5em;
@@ -83,7 +85,7 @@ padding-top:3em;
 
 .main-nav {
 	text-align: center;
-	text-transform:upper-case;
+	text-transform:uppercase;
 	font-family:"myriad-pro-condensed";
 	
 
