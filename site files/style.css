@@ -24,8 +24,13 @@
 .sub-nav a.selected{
 	color:white;
 		font-weight:normal;
-
 }
+.side-nav li a.selected {
+		background-image: url(dap-side-nav-selected.png);
+		background-position: right center;
+}
+
+
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
@@ -93,7 +98,8 @@ ul {
 
 .top-background {
 	height: 231px;
-	background:url(images/header-bg.png) repeat-x;
+	background:url(images/dap-elements-header-bg.jpg) repeat-x;/* header-bg.png */
+	border-bottom: 1px solid rgb(146, 137, 132);
 }
 
 header {
@@ -123,12 +129,7 @@ padding-top:2em;
 	font-size:1.2em;
 
 	}
-	
 
-
-/* jena couldint figure out how to get it 
-	to over-ride the general border left without messin around 
-	too much at critical js time */
 .first-main-nav-item, .first-sub-nav-item {
 	border-left:none !important; 
 }
@@ -147,7 +148,10 @@ padding-top:2em;
 	border-left:1px solid black;
 	
 }
- /* jena verify below */
+	.sub-nav a{
+		font-family: "myriad-pro-condensed";
+		font-size: 1.05em;
+	}
 .about-sub-nav {
 	margin-left:16.2em;
 }
@@ -166,7 +170,7 @@ padding-top:2em;
 }
 	.side-nav-section p {
 		color:white;
-	
+		padding: 0 1em;
 	}
 	.side-nav {
 		background-color:rgba(0,0,0,0.5);
@@ -183,10 +187,12 @@ padding-top:2em;
 		color:white;
 		list-style:none;
 		padding:.5em 0;
+
 	
 	}
 	.side-nav li a, .side-nav a{
 		color:white;
+		font-style:italic;
 	}
 	
 		
@@ -207,22 +213,56 @@ padding-top:2em;
 		-khtml-border-radius: 10px; /* for old Konqueror browsers */
 	}
 	.static-content {
-		background-color: rgb(200, 200, 200);
+		background-color: rgb(219, 219, 219);
 		-moz-border-radius: 10px 10px 0 0;
 		-webkit-border-radius: 10px 10px 0 0;
 		border-radius: 10px 10px 0 0; /* future proofing */
 		-khtml-border-radius: 10px 10px 0 0; /* for old Konqueror browsers */
 	}
+	
+	.static-content h2{
+		font-size: 1em;
+		font-weight: normal;
+		text-transform: uppercase;
+		font-family: "myriad-pro-condensed";
+		margin: 0;
+	}
+	.static-content img {
+		float:left;
+		padding:1em;
+	}
 	.static-content p {
 		font-weight:bold;
 		margin-top:0;
-		padding-top:1em;
+		padding-top:.5em;
 		padding-bottom:1em;
+		font-family: "myriad-pro-condensed";
+		font-style:italic;
+		font-size: 1.1em;
+
 	}
 	.changing-content ul {
+/* 
 		list-style-position: inside;
+ */
 		display:block;
+		margin-left: 4em;
+		margin-right: 1em;
 		}
+	.changing-content img {
+		float:left;
+		padding: .4em 1em .5em 3em;
+		height: 230px;
+	}
+	#static-content-contact {
+		text-align:center;
+	}
+	#static-content-contact-img {
+		padding: 1em 1em 0;
+		width:95%;
+		float:none;
+	}
+	
 	
 .audio-section {
 	
