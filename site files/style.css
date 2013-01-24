@@ -32,15 +32,19 @@ h1 {
 	margin:0 auto;
 	display:block;
 	width:800px;
+
+}
+h1 a {
 	font-family: "ff-market-web";
-	
+	text-shadow: 2px 2px #C69C6D;
+	font-size: 1.2em;
 }
 a {
 	font-weight:normal;
 	text-decoration:none;
 }
 p{	
-	padding: 0 2em;
+	padding: 0 3em;
 }
 h2, h3, h4, h5, h6 {
 	padding-left:2em;
@@ -79,16 +83,13 @@ ul {
 }
 
 header {
-padding-top:3em;
+padding-top:2em;
 
 }
 
 .main-nav {
 	text-align: center;
 	text-transform:uppercase;
-	font-family:"myriad-pro-condensed";
-	
-
 }
 .main-nav ul{
 	border-top:1px solid black;
@@ -102,9 +103,13 @@ padding-top:3em;
 	padding:0 20px;
 	border-left:1px solid black;
 	padding-top:.5em;
-	
-	
 }
+.main-nav li a {
+	font-family: "myriad-pro-condensed";
+	font-size:1.2em;
+	}
+	
+
 
 /* jena couldint figure out how to get it 
 	to over-ride the general border left without messin around 
