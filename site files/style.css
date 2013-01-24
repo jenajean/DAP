@@ -4,6 +4,16 @@
 }
 .selected {
 	font-weight:bold;
+
+}
+.main-nav a.selected {
+	padding-bottom:30px;
+	background-image: url(images/dap-selected-graphic.png);
+	background-position:bottom center;
+	background-repeat: no-repeat;
+	min-width: 60px;
+	display: block;
+	
 }
 .selected p{
 	font-weight:normal;
@@ -11,7 +21,11 @@
 .changing-content > div.selected {
 	display:block;			
 }
+.sub-nav a.selected{
+	color:white;
+		font-weight:normal;
 
+}
 /* -----GENERAL STYLES/APPLIED THROUGHOUT----- */
 
 body {
@@ -107,6 +121,7 @@ padding-top:2em;
 .main-nav li a {
 	font-family: "myriad-pro-condensed";
 	font-size:1.2em;
+
 	}
 	
 
@@ -116,6 +131,9 @@ padding-top:2em;
 	too much at critical js time */
 .first-main-nav-item, .first-sub-nav-item {
 	border-left:none !important; 
+}
+#sub-nav-wrap {
+	margin-top:-1em;
 }
 .sub-nav{
 	font-family:"myriad-pro-condensed";
