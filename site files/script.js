@@ -23,9 +23,7 @@ $(function() {
 
 //VVV----- Code for dynamic page content replacement -----VVV (thanks to Jesse Shawl and CSS Tricks for the example code)
 	
-	if(Modernizr.history){
-	
-		
+
 		
 		//run link sanitizer to prevent actual navigation off the page, only if we have access to history
 		sanitizeLinks('.main-nav');
@@ -56,7 +54,10 @@ $(function() {
 	        var _link2 = _link;
 	        loadContent(_link);
 	        loadSubNav(_link2);
-	        history.pushState(null, null, _link);
+	        if(Modernizr.history){
+	       		 history.pushState(null, null, _link);
+	       		 $("body").addClass("historypushed");
+	       	}
 	        return false;
 	    });
 	    
@@ -67,7 +68,10 @@ $(function() {
 	        var _link = $(this).attr("rel");
 	        console.log("subLINK: "+_link);//test code
 	        loadContent(_link);
-	        history.pushState(null, null, _link);
+	        if(Modernizr.history){
+	       		 history.pushState(null, null, _link);
+	       		 $("body").addClass("historypushed");
+	       	}
 	        return false;
 	    });;
 	    
@@ -82,11 +86,11 @@ $(function() {
 	                .fadeOut(200, function() { // fade out the content of the current page
 	                    $dynamicContentWrap.hide().load(href + " #dynamic-content", function() { // load the contents of whatever href is
 	                        $dynamicContentWrap.fadeIn(200, function() {
+	                            //hide the extra tabbed content
+	    						hideTabs();
 	                            $pageWrap.animate({
 	                                height: baseHeight + $dynamicContentWrap.height() + "px"
 	                            });//end animate
-	                            //hide the extra tabbed content
-	    						hideTabs();
 	                        });//end fadeIn
 	                    });//end load
 	                });//end fadeOut
@@ -114,16 +118,17 @@ $(function() {
 	    
 	    
 	    
-//**temporarily disable pop-state stuff**
-//		   $(window).bind('popstate', function(){
-// 	       _link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
-// 	       loadContent(_link);
-//	    });
+		//if History API is available, bind the popstate to load the history, only if the history has been previously pushed
+		if(Modernizr.history){
+		   $(window).bind('popstate', function(){
+		   		if ($('body').hasClass("historypushed")){
+ 	       				_link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
+ 	       				loadContent(_link);
+ 	       		}
+	       });
+		}
+		
 	
-	
-	
-	
-	} // otherwise, history is not supported, so nothing fancy here. - end of if(Modernizr.history..)
 
 //^^^----- Code for dynamic page content replacement -----^^^
 
@@ -138,7 +143,7 @@ $(function() {
 		var link = $(this).attr("rel");
 		console.log("side-link "+link);//test code
 		swapTabs(link);
-	})
+	});
 	
 
 
@@ -151,6 +156,7 @@ $(function() {
 		});
 		console.log("unhidden, unselected tabs are now hidden");
 	}
+	
 	
 	
 	//define function to swap tab content when side-nav is clicked
