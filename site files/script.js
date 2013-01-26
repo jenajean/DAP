@@ -1,6 +1,8 @@
-$(function() {
 
-	//call tab hider
+
+$(function() {
+	var temperPopState = false;
+
 	//hide the extra tabbed content
 	hideTabs();
 
@@ -20,16 +22,12 @@ $(function() {
 			});
 	}
 
-
-//VVV----- Code for dynamic page content replacement -----VVV (thanks to Jesse Shawl and CSS Tricks for the example code)
-	
-
-		
 		//run link sanitizer to prevent actual navigation off the page, only if we have access to history
 		sanitizeLinks('.main-nav');
 		sanitizeLinks('.sub-nav');
 		
-		
+
+//VVV----- Code for dynamic page content replacement -----VVV (thanks to Jesse Shawl and CSS Tricks for the example code)		
 		
 	    //setup variables for dynamic content replacement
 	    var $dynamicContentWrap = $("#dynamic-content-wrap"),
@@ -63,6 +61,7 @@ $(function() {
 	    
 	    //when a sub navigation link is clicked, give it the 'selected' class and run the loadContent function
 	    $('#sub-nav-wrap').delegate(".sub-nav a", "click", function() {
+	        console.log("clicked sub nav");
 	        $('.sub-nav a').removeClass("selected");//un-select the currently selected link
 	        $(this).addClass("selected"); //add selected class to the current
 	        var _link = $(this).attr("rel");
@@ -83,9 +82,9 @@ $(function() {
 	        //replace the dynamic content section of the page
 	        $dynamicContentWrap
 	                .find("#dynamic-content")
-	                .fadeOut(200, function() { // fade out the content of the current page
+	                .fadeOut(100, function() { // fade out the content of the current page
 	                    $dynamicContentWrap.hide().load(href + " #dynamic-content", function() { // load the contents of whatever href is
-	                        $dynamicContentWrap.fadeIn(200, function() {
+	                        $dynamicContentWrap.fadeIn(100, function() {
 	                            //hide the extra tabbed content
 	    						hideTabs();
 	                            $pageWrap.animate({
@@ -121,10 +120,18 @@ $(function() {
 		//if History API is available, bind the popstate to load the history, only if the history has been previously pushed
 		if(Modernizr.history){
 		   $(window).bind('popstate', function(){
-		   		if ($('body').hasClass("historypushed")){
+		   		if ($('body').hasClass("historypushed") && temperPopState === false){
+		   				console.log("popstate event fired and tripped loadContent");
  	       				_link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
  	       				loadContent(_link);
+ 	       				loadSubNav(_link);
  	       		}
+ 	       		else{
+ 	       			if (temperPopState === true){
+ 	       				temperPopState = false;
+ 	       			}
+ 	       		}
+ 	       		
 	       });
 		}
 		
@@ -136,13 +143,17 @@ $(function() {
 
 //VVV----- Code for tabbed content within pages -----VVV
 
+	
+
 	//assign a click-function for the side-navigation
 	$("#dynamic-content-wrap").delegate(".side-nav a", "click", function(){
+		console.log("clicked side-nav");
 		$(".side-nav a").removeClass("selected");
 		$(this).addClass("selected");
 		var link = $(this).attr("rel");
 		console.log("side-link "+link);//test code
 		swapTabs(link);
+		temperPopState = true;
 	});
 	
 
