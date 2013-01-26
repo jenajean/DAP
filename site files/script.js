@@ -18,7 +18,7 @@ $(function() {
 				$cur_link.attr('href', '#');
 				//console.log("final href: " + $cur_link.attr('href'));//test code
 				$container.addClass("sanitized");
-				console.log("Links are sanitized");	
+				//console.log("Links are sanitized");//test code	
 			});
 	}
 
@@ -40,7 +40,7 @@ $(function() {
 	    // calculate wrapper heights to prevent jumping when loading new content    
 	    $pageWrap.height($pageWrap.height());
 	    baseHeight = $pageWrap.height() - $dynamicContentWrap.height();
-	    console.log("baseheight: " + baseHeight);
+	    //console.log("baseheight: " + baseHeight);//test code
 	    
 	    
 	    
@@ -61,11 +61,11 @@ $(function() {
 	    
 	    //when a sub navigation link is clicked, give it the 'selected' class and run the loadContent function
 	    $('#sub-nav-wrap').delegate(".sub-nav a", "click", function() {
-	        console.log("clicked sub nav");
+	        //console.log("clicked sub nav");
 	        $('.sub-nav a').removeClass("selected");//un-select the currently selected link
 	        $(this).addClass("selected"); //add selected class to the current
 	        var _link = $(this).attr("rel");
-	        console.log("subLINK: "+_link);//test code
+	        //console.log("subLINK: "+_link);//test code
 	        loadContent(_link);
 	        if(Modernizr.history){
 	       		 history.pushState(null, null, _link);
@@ -78,7 +78,7 @@ $(function() {
   
 	    //function to dynamically replace page content
 	    function loadContent(href){
-	       	console.log("argument: "+	href);//test code
+	       	//console.log("argument: "+	href);//test code
 	        //replace the dynamic content section of the page
 	        $dynamicContentWrap
 	                .find("#dynamic-content")
@@ -90,26 +90,23 @@ $(function() {
 	                        });//end fadeIn
 	                    });//end load
 	                });//end fadeOut
-	            console.log("end of loadContent fx");
+	            //console.log("end of loadContent fx");//testcode
 	    }//end loadContent definition
 	    
 	    
 
 	    //function to dynamically replace sub-nav content
 	    function loadSubNav(href){
-	    	console.log("argument subnav: "+ href);//test code
-	    	//replace sub-nav
-	    	$subNav.find(".sub-nav").fadeOut(100, function(){
+	    	//console.log("argument subnav: "+ href);//test code
+	    	$subNav.find(".sub-nav").fadeOut(100, function(){//replace sub-nav
 	    		$subNav.hide().load(href + " .sub-nav", function(){
 	    			$subNav.fadeIn(100, function(){
 	    				//nothing special animated here for the time being
-	    				//hide the extra tabbed content
-	    				//hideTabs();
 	    			});
 	    			sanitizeLinks('.sub-nav');
 	    		});//end load f(x)
 	    	});//end fadeOut f(x)	
-	    	console.log("end of loadsubnav fx");
+	    	//console.log("end of loadsubnav fx");//test code
 	    }//end loadSubNav definition
 	    
 	    
@@ -118,7 +115,7 @@ $(function() {
 		if(Modernizr.history){
 		   $(window).bind('popstate', function(){
 		   		if ($('body').hasClass("historypushed") && temperPopState === false){
-		   				console.log("popstate event fired and tripped loadContent");
+		   				//console.log("popstate event fired and tripped loadContent");//test code
  	       				_link = location.pathname.replace(/^.*[\\\/]/, ''); //get filename only
  	       				loadContent(_link);
  	       				loadSubNav(_link);
@@ -144,11 +141,11 @@ $(function() {
 
 	//assign a click-function for the side-navigation
 	$("#dynamic-content-wrap").delegate(".side-nav a", "click", function(){
-		console.log("clicked side-nav");
+		//console.log("clicked side-nav");//test code
 		$(".side-nav a").removeClass("selected");
 		$(this).addClass("selected");
 		var link = $(this).attr("rel");
-		console.log("side-link "+link);//test code
+		//console.log("side-link "+link);//test code
 		swapTabs(link);
 		temperPopState = true;
 	});
@@ -160,9 +157,9 @@ $(function() {
 		sanitizeLinks(".side-nav");
 		$('.changing-content > div').each(function(){
 			$(this).addClass("hiding");
-			console.log($(this).attr("id")+ " has classes " + $(this).attr("class"))
+			//console.log($(this).attr("id")+ " has classes " + $(this).attr("class"))//test code
 		});
-		console.log("unhidden, unselected tabs are now hidden");
+		//console.log("unhidden, unselected tabs are now hidden");//test code
 	}
 	
 	
@@ -170,7 +167,7 @@ $(function() {
 	//define function to swap tab content when side-nav is clicked
 	function swapTabs(tabID){
 		var $thisTab = $(tabID);
-		console.log("thistab.html:" +$thisTab.html());
+		//console.log("thistab.html:" +$thisTab.html());//test code
 		$('.changing-content > div').removeClass("selected");
 		$thisTab.addClass("selected");
 	}
