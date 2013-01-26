@@ -87,9 +87,6 @@ $(function() {
 	                        $dynamicContentWrap.fadeIn(100, function() {
 	                            //hide the extra tabbed content
 	    						hideTabs();
-	                            $pageWrap.animate({
-	                                height: baseHeight + $dynamicContentWrap.height() + "px"
-	                            });//end animate
 	                        });//end fadeIn
 	                    });//end load
 	                });//end fadeOut
