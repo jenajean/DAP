@@ -44,6 +44,11 @@ body {
 h2, h3, h4, h5, h5, ul, li, a, p {
 	font-family: "myriad-pro";
 }
+h3 {	
+	text-transform: uppercase;
+	font-weight: normal;
+	padding-left:2.8em;
+	}
 h1 {
 	border-top:1px solid black;
 	padding-top:.5em;
